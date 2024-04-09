@@ -187,7 +187,7 @@ const exercicio10 = () => {
 
 
 if (num <= 9){
-    error.innerHTML = `<h3>Favor informar uma palavra!</h3>`;
+    error.innerHTML = `<h3>Favor informar um numero!</h3>`;
 } else {
     for (let i = 1; i <= num.length; i++) {
         soma += parseInt(num.charAt(num.length - i));
@@ -359,7 +359,7 @@ const exercicio19 = () => {
     let data = document.getElementById("data").value
     let error = document.getElementById("erro");
     let result = document.getElementById("resultado");
-    let dataNasc = new Date("2007=03-14");
+    let dataNasc = new Date(data);
     let dataAtual = new Date();
     let diferenca = dataAtual.getTime() - dataNasc.getTime();
     const idade = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365.25));
@@ -375,7 +375,7 @@ if (data == "")  {
 
 /* exercicio 20 */
 
-const exercicio20 = () => {let palavra = document.getElementById("palavra").value;
+const exercicio20 = () => {let frase = document.getElementById("frase").value;
 let error = document.getElementById("erro");
 let result = document.getElementById("resultado");
 error.innerText = "";
@@ -383,16 +383,109 @@ result.innerText = "";
 
 
 let inversa = "";
-if (palavra == ""){
-    error.innerText = "Favor informar uma palavra!";
+if (frase == ""){
+    error.innerText = "Favor informar uma frase!";
 } else {
-for (let i = 1; i <= palavra.length; i++) {
-  inversa += palavra.charAt(palavra.length - i);
+for (let i = 1; i <= frase.length; i++) {
+  inversa += frase.charAt(frase.length - i);
 }
 
-
-palavra.toLowerCase() == inversa.toLowerCase()
-  inversa.innerText 
-  error.innerText 
+result.innerText = inversa 
   };
 };
+
+const exercicio21 = () => {let frase = document.getElementById("frase").value;
+let error = document.getElementById("erro");
+let result = document.getElementById("resultado");
+let novotexto = frase.split(" ");
+error.innerText = "";
+result.innerText = "";
+
+
+if (frase == ""){
+    error.innerText = "Favor informar uma frase!";
+} else {
+    result.innerText =  `${novotexto.join("")}`
+
+
+  };
+};
+
+let soma = 0;
+const exercicio22 = () => {
+let num = document.getElementById("num").value;
+let result = document.getElementById("resultado");
+let error = document.getElementById("erro");
+
+result.innerText = "";
+
+if (soma <= 100) {
+    soma += parseInt(num);
+}
+result.innerText = `a soma total é ${soma}`;
+error.innerHTML = "";
+};
+
+const exercicio23 = () => {
+    let frase = document.getElementById("frase").value;
+    let pala = document.getElementById("palavra").value;
+    frase = frase.toLowerCase();
+    pala = pala.toLowerCase();
+    let corte = frase.split(" ");
+    let contador = 0;
+    console.log(corte);
+    if (frase == "" || pala == "") {
+      document.getElementById("erro").innerText =
+        "Escreva uma frase e uma palavra";
+    } else {
+      for (let i = 0; i < corte.length; i++) {
+        if (corte[i] == pala) {
+          contador++;
+        }
+      }
+      document.getElementById(
+        "resultado"
+      ).innerText = `O número de vezes que ${pala} aparece é ${contador}`;
+    }
+  };
+
+  
+  const exercicio24 = () => {
+    let resultado = document.getElementById("resultado");
+  
+    let valor = document.getElementById("frase").value;
+    let frase = valor.split(" ");
+    const array = [];
+  
+    let erro = document.getElementById("erro");
+  
+    if (valor == "") {
+      erro.innerText = "Coloque um título!";
+      resultado.innerHTML = "";
+    } else {
+      erro.innerText = "";
+      const fraseMod = frase.map((palavra) => {
+        const primeiraLetra = palavra[0].toUpperCase(); 
+        array.push(primeiraLetra); 
+        return primeiraLetra + palavra.slice(1); 
+      });
+      resultado.innerHTML = `<h1>${fraseMod.join(" ")}</h1>`;
+    }
+  };
+const exercicio25 = () => {
+    let num1 = document.getElementById("num1").value
+    let num2 =  document.getElementById("num2").value
+    let num3 =  document.getElementById("num3").value
+    let result = document.getElementById("resultado");
+    let error = document.getElementById("erro");
+    let num = [num1, num2, num3]
+
+    num.sort((a,b)=> a - b)
+    if (num1 == "" || num2 == "" || num3 == "") {
+        error.innerText = "Favor informar um numero!";
+    
+    } else {
+        error.innerText = "" 
+        result.innerText = num
+    } 
+    };
